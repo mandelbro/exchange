@@ -1,0 +1,22 @@
+
+<div class="row">
+
+  <div class="columns large-10 questions-list">
+    <ul>
+      <% @questions.each do |question| %>
+      <li class="question-list-item">
+        <div class="question" id="question-<%= question.id %>">
+          <h3><%= link_to question.question, question %></h3>
+          <p><%= markdown question.answer %></p>
+        </div>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="columns large-2 sidebar">
+
+    <hr class="section-spacer large-hidden">
+    <%= link_to 'Ask New Question', new_question_path, class: 'button medium' %>
+  </div>
+</div>

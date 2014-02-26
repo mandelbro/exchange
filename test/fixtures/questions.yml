@@ -1,0 +1,16 @@
+# Read about fixtures at
+# http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+tie:
+  question: How Do You Tie a Tie
+  answer: |
+    ### Full Windsor
+    Super formal
+    ### Half Windsor
+    Super cool
+    ### So many others
+
+shoe:
+  question: How do I tie my shoes
+  answer: |
+    ### Bunny Ears FTW

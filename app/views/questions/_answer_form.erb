@@ -1,0 +1,16 @@
+
+  <%= form_for(@question) do |f| %>
+    <div class="field row">
+
+      <div class="columns large-4">
+        <%= f.label :answer, title: "Answer" %>
+      </div>
+      <div class="columns large-8">
+        <%= f.text_area :answer %>
+      </div>
+    </div>
+
+    <div class="actions">
+      <%= submit_tag "Save Answer", class: 'button large' %>
+    </div>
+  <% end %>

@@ -1,24 +1,26 @@
 
 <div class="row">
+  <div class="columns large-9 questions-list data-equalizer">
 
   <h1>Questions</h1>
 
-  <div class="columns large-10 questions-list">
     <% @questions.each_with_index do |question, i| %>
     <div class="row">
-      <% unless i === 0 %>
-        <hr>
-      <% end %>
       <div class="question column" id="question-<%= question.id %>">
+        <% unless i === 0 %>
+          <hr>
+        <% end %>
         <h3><%= link_to question.question, question %></h3>
       </div>
     </div>
     <% end %>
   </div>
 
-  <div class="columns large-2 sidebar">
+  <div class="columns large-3 sidebar">
 
-    <hr class="section-spacer show-for-large-up">
+    <hr class="section-spacer hide-for-medium-up">
+    <br>
+    <br>
     <%= link_to 'Ask New Question', new_question_path, class: 'button medium' %>
   </div>
 </div>

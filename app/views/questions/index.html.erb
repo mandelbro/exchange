@@ -1,22 +1,24 @@
 
 <div class="row">
 
+  <h1>Questions</h1>
+
   <div class="columns large-10 questions-list">
-    <ul>
-      <% @questions.each do |question| %>
-      <li class="question-list-item">
-        <div class="question" id="question-<%= question.id %>">
-          <h3><%= link_to question.question, question %></h3>
-          <p><%= markdown question.answer %></p>
-        </div>
-      </li>
+    <% @questions.each_with_index do |question, i| %>
+    <div class="row">
+      <% unless i === 0 %>
+        <hr>
       <% end %>
-    </ul>
+      <div class="question column" id="question-<%= question.id %>">
+        <h3><%= link_to question.question, question %></h3>
+      </div>
+    </div>
+    <% end %>
   </div>
 
   <div class="columns large-2 sidebar">
 
-    <hr class="section-spacer large-hidden">
+    <hr class="section-spacer show-for-large-up">
     <%= link_to 'Ask New Question', new_question_path, class: 'button medium' %>
   </div>
 </div>

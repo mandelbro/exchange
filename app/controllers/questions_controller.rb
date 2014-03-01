@@ -15,6 +15,8 @@ class QuestionsController < ApplicationController
 
   def create
     @question = Question.new(question_params)
+    add_user
+
     if @question.save
       flash[:notice] = "Question was successfully created."
       redirect_to @question
@@ -27,11 +29,12 @@ class QuestionsController < ApplicationController
   end
 
   def update
-    @question.update_attributes(question_params)
-    if @question.save
+    add_user
+    p @question.users
+    if @question.update(question_params)
+
       flash[:notice] = "Question was successfully updated."
       redirect_to @question
-    else
       # we'll get to this in a bit
     end
   end
@@ -52,6 +55,12 @@ class QuestionsController < ApplicationController
 
   def get_question
     @question = Question.find(params[:id])
+  end
+
+  def add_user
+    return unless(current_user)
+    @question.users ||= []
+    @question.users |= [current_user]
   end
 
   def question_params
